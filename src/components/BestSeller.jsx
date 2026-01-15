@@ -1,15 +1,19 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { ShopContext } from '../context/ShopContext.jsx'
-import Title from './Title.jsx'
+import { ShopContext } from '../context/ShopContext'
+import Title from './Title'
 import ProductItem from './ProductItem.jsx'
 
-const LatestCollection = () => {
+const BestSeller = () => {
 
   const { products } = useContext(ShopContext)
-  const [latestProducts, setLatestProducts] = useState([])
+  const [bestSellers, setBestSellers] = useState([])
 
   useEffect(() => {
-    setLatestProducts(products.slice(0, 10))
+    const bestProducts = products
+      .filter(item => item.bestseller)
+      .slice(0, 5)
+
+    setBestSellers(bestProducts)
   }, [products])
 
   return (
@@ -18,25 +22,25 @@ const LatestCollection = () => {
 
         {/* Header */}
         <div className="text-center mb-16">
-          <Title text1="Latest" text2="Collection" />
+          <Title text1="Best" text2="Sellers" />
 
           <p className="max-w-2xl mx-auto mt-4 text-sm sm:text-base text-gray-500 leading-relaxed">
-            Discover our newest pieces — thoughtfully designed, beautifully crafted,
-            and made to elevate your everyday style.
+            Our most loved pieces — chosen by our community for their
+            design, quality, and everyday comfort.
           </p>
         </div>
 
         {/* Products Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
-          {latestProducts.map((item) => (
+          {bestSellers.map((item) => (
             <div
               key={item.id}
               className="transition-transform duration-300 hover:-translate-y-1"
             >
               <ProductItem
                 id={item.id}
-                image={item.image}
                 name={item.name}
+                image={item.image}
                 price={item.price}
               />
             </div>
@@ -48,4 +52,4 @@ const LatestCollection = () => {
   )
 }
 
-export default LatestCollection
+export default BestSeller
