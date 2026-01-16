@@ -13,7 +13,7 @@ const ProductItem = ({ id, image, name, price }) => {
       {/* Image */}
       <div className="relative overflow-hidden rounded-2xl bg-gray-50">
         <img
-          src={image}
+          src={image[0]}
           alt={name}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
