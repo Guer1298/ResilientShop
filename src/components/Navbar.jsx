@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { CiSearch } from 'react-icons/ci'
 import { CgProfile } from 'react-icons/cg'
 import { AiOutlineShopping } from 'react-icons/ai'
 import { HiOutlineMenuAlt4 } from 'react-icons/hi'
+import { ShopContext } from '../context/ShopContext'
 
 const NAV_ITEMS = [
   { label: 'Home', path: '/' },
@@ -19,6 +20,7 @@ const navLinkClass = ({ isActive }) =>
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const {setShowSearch} = useContext(ShopContext);
 
   return (
     <>
@@ -55,6 +57,7 @@ const Navbar = () => {
             <button
               aria-label="Search"
               className="p-2 rounded-full hover:bg-black/5 transition"
+              onClick={()=>setShowSearch?.(true)}
             >
               <CiSearch size={18} />
             </button>
