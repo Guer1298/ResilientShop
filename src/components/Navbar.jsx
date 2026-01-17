@@ -20,7 +20,7 @@ const navLinkClass = ({ isActive }) =>
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const {setShowSearch} = useContext(ShopContext);
+  const {setShowSearch,getCartCount} = useContext(ShopContext);
 
   return (
     <>
@@ -105,7 +105,7 @@ const Navbar = () => {
                 bg-black text-white text-[10px]
                 flex items-center justify-center
               ">
-                10
+                {getCartCount()}
               </span>
             </Link>
 
