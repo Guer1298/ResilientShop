@@ -5,6 +5,7 @@ import { CgProfile } from 'react-icons/cg'
 import { AiOutlineShopping } from 'react-icons/ai'
 import { HiOutlineMenuAlt4 } from 'react-icons/hi'
 import { ShopContext } from '../context/ShopContext'
+import MenteDigital from '../assets/MenteDigital.svg';
 
 const NAV_ITEMS = [
   { label: 'Home', path: '/' },
@@ -63,7 +64,9 @@ const Navbar = () => {
             </button>
 
             {/* Profile */}
-            <div className="relative group">
+
+            <Link to={'/login'}>
+              <div className="relative group">
               <button
                 aria-label="User menu"
                 className="p-2 rounded-full hover:bg-black/5 transition"
@@ -93,6 +96,8 @@ const Navbar = () => {
               </div>
             </div>
 
+            </Link>
+            
             {/* Cart */}
             <Link
               to="/cart"
@@ -109,57 +114,110 @@ const Navbar = () => {
               </span>
             </Link>
 
+            {/* Sponsor */}
+              <div className="hidden lg:flex items-center pl-6 border-l border-black/10">
+                <a
+                  href="https://www.mentedigital.com.co"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Visit Mente Digital website"
+                  className="flex items-center"
+                >
+                  <img
+                    src={MenteDigital}
+                    alt="Mente Digital sponsor logo"
+                    className="
+                      h-10
+                      opacity-90
+                      hover:opacity-100
+                      hover:scale-105
+                      transition
+                      duration-300
+                    "
+                  />
+                </a>
+              </div>
+
+
+
+
+
             {/* Mobile Trigger */}
-            <button
-              onClick={() => setIsMobileMenuOpen(true)}
-              className="md:hidden p-2 rounded-full hover:bg-black/5 transition"
-              aria-label="Open menu"
-            >
-              <HiOutlineMenuAlt4 size={20} />
-            </button>
-
-          </div>
-        </div>
-      </nav>
-
-      {/* MOBILE MENU */}
-      {isMobileMenuOpen && (
-        <div
-          className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm"
-          onClick={() => setIsMobileMenuOpen(false)}
+        <button
+          onClick={() => setIsMobileMenuOpen(true)}
+          className="md:hidden p-2 rounded-full hover:bg-black/5 transition"
+          aria-label="Open menu"
         >
-          <aside
-            className="
-              absolute right-0 top-0 h-full w-72
-              bg-white rounded-l-2xl
-              p-8
-              animate-slide-in
-            "
-            onClick={e => e.stopPropagation()}
-          >
-            <button
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="mb-10 text-sm text-gray-400 hover:text-black transition"
-            >
-              Close
-            </button>
+          <HiOutlineMenuAlt4 size={20} />
+        </button>
 
-            <ul className="flex flex-col gap-6 text-lg font-medium">
-              {NAV_ITEMS.map(item => (
-                <li key={item.path}>
-                  <Link
-                    to={item.path}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="text-gray-700 hover:text-black transition"
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </aside>
         </div>
-      )}
+        </div>
+        </nav>
+
+        {/* MOBILE MENU */}
+        {isMobileMenuOpen && (
+          <div
+            className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            <aside
+              className="
+                absolute right-0 top-0 h-full w-72
+                bg-white rounded-l-2xl
+                p-8
+                animate-slide-in
+                flex flex-col
+              "
+              onClick={e => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="mb-10 text-sm text-gray-400 hover:text-black transition"
+              >
+                Close
+              </button>
+
+              {/* Navigation */}
+              <ul className="flex flex-col gap-6 text-lg font-medium">
+                {NAV_ITEMS.map(item => (
+                  <li key={item.path}>
+                    <Link
+                      to={item.path}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="text-gray-700 hover:text-black transition"
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+
+              {/* Spacer */}
+              <div className="flex-1" />
+
+              {/* Mobile Sponsor */}
+              <div className="pt-6 border-t border-black/10 text-center">
+                <p className="text-[11px] text-gray-400 tracking-widest uppercase mb-4">
+                  In partnership with
+                </p>
+                <img
+                  href="https://www.mentedigital.com.co"
+                  src={MenteDigital}
+                  alt="Sponsor logo"
+                  className="
+                    mx-auto
+                    h-10
+                    opacity-90
+                    transition
+                    duration-300
+                  "
+                />
+              </div>
+            </aside>
+          </div>
+        )}
+
     </>
   )
 }

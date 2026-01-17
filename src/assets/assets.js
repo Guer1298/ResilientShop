@@ -18,6 +18,7 @@ import image17 from './image17.jpg';
 import image18 from './image18.jpeg';
 import image19 from './image19.png';
 import image20 from './image20.jpg';
+import MenteDigital from './MenteDigital.svg';
 
 
 export const products = [
