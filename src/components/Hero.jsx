@@ -52,8 +52,8 @@ const Hero = () => {
 
               {/* CTAs */}
               <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
-                <a
-                  href="/product/21"
+                <Link
+                  to="/product/21"
                   className="group inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-black shadow-[0_14px_40px_-20px_rgba(0,0,0,0.65)] transition hover:scale-[1.01] active:scale-[0.99] focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black"
                 >
                   Shop now
@@ -71,7 +71,8 @@ const Hero = () => {
                       strokeLinejoin="round"
                     />
                   </svg>
-                </a>
+                </Link>
+
 
                 <Link
                   to="/collection"

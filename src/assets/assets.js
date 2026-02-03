@@ -267,16 +267,17 @@ export const products = [
     bestseller: true,
   },
    {
-    id: 21,
-    name: "Moro Style",
-    description: "Ni goku me gana",
-    price: 19.99,
-    image: [image21,image22,image23,image24],
-    category: "Women",
-    subCategory: "T-Shirts",
-    sizes: ["S", "M", "L", "XL"],
-    date: "2023-10-01",
-    bestseller: true,
-  },
+  id: 21,
+  name: "Moro Style — Limited Drop",
+  description: "Inspirada en la saga más oscura. Un diseño de alto impacto que impone presencia. No es solo una camiseta: es una declaración.",
+  price: 90000,
+  image: [image21, image22, image23, image24],
+  category: "Women",
+  subCategory: "T-Shirts",
+  sizes: ["S", "M", "L", "XL"],
+  date: "2023-10-01",
+  bestseller: true,
+}
+
   
 ];
