@@ -19,6 +19,10 @@ import image18 from './image18.jpeg';
 import image19 from './image19.png';
 import image20 from './image20.jpg';
 import MenteDigital from './MenteDigital.svg';
+import image21 from './moro1.png'
+import image22 from './moro2.png'
+import image23 from './moro3.png'
+import image24 from './moro4.png'
 
 
 export const products = [
@@ -260,6 +264,18 @@ export const products = [
     subCategory: "Tops",
     sizes: ["XS", "S", "M", "L"],
     date: "2023-10-06",
+    bestseller: true,
+  },
+   {
+    id: 21,
+    name: "Moro Style",
+    description: "Ni goku me gana",
+    price: 19.99,
+    image: [image21,image22,image23,image24],
+    category: "Women",
+    subCategory: "T-Shirts",
+    sizes: ["S", "M", "L", "XL"],
+    date: "2023-10-01",
     bestseller: true,
   },
   
